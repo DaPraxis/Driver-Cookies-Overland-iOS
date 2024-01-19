@@ -2,6 +2,7 @@
 
 @interface POIRatingsViewController : UIViewController
 
-@property (nonatomic, assign) NSInteger numberOfButtons;
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) NSMutableArray *tripObjects;
 
 @end

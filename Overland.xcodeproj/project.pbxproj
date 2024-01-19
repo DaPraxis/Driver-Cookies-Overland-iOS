@@ -90,6 +90,7 @@
 		2294C31F2B59B3BB00042A41 /* POIRatingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POIRatingsViewController.m; sourceTree = "<group>"; };
 		2294C3222B59E04600042A41 /* TripCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripCard.m; sourceTree = "<group>"; };
 		2294C3242B59E05F00042A41 /* TripCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripCard.h; sourceTree = "<group>"; };
+		2294C3262B5A265600042A41 /* TripDetailsViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailsViewControllerDelegate.h; sourceTree = "<group>"; };
 		251EBCB0197B8F3891607241 /* Pods-Overland.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Overland.release.xcconfig"; path = "Pods/Target Support Files/Pods-Overland/Pods-Overland.release.xcconfig"; sourceTree = "<group>"; };
 		378F9BC146097DEF5A9CCBF9 /* Pods-GPSLogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSLogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPSLogger/Pods-GPSLogger.release.xcconfig"; sourceTree = "<group>"; };
 		3CCE0D26F93B3FCD5A4A1D16 /* libPods-GPSLogger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPSLogger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +199,7 @@
 				2294C3242B59E05F00042A41 /* TripCard.h */,
 				2294C31E2B59B3A100042A41 /* POIRatingsViewController.h */,
 				2294C31F2B59B3BB00042A41 /* POIRatingsViewController.m */,
+				2294C3262B5A265600042A41 /* TripDetailsViewControllerDelegate.h */,
 				0FAC1FEC2B255D460007F3B1 /* NSArray+map.h */,
 				0FAC1FEA2B255CA60007F3B1 /* NSArray+map.m */,
 				0FFD31611BAB7A34009B3A03 /* Main.storyboard */,

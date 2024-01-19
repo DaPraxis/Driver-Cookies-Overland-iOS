@@ -1477,6 +1477,24 @@ For details on the format of the data this app sends to the server, please visit
             </objects>
             <point key="canvasLocation" x="1517.5999999999999" y="357.57121439280365"/>
         </scene>
+        <!--Trip Details View Controller-->
+        <scene sceneID="3Tn-MC-PwF">
+            <objects>
+                <viewController id="lvt-nc-AQ8" customClass="TripDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rpi-pf-VwM"/>
+                        <viewControllerLayoutGuide type="bottom" id="zoE-ML-PiN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uqP-gP-fJS">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="916"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eqI-Jz-ITY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1525" y="1560"/>
+        </scene>
         <!--POI Ratings View Controller-->
         <scene sceneID="bs0-Nm-Exe">
             <objects>
@@ -1491,6 +1509,9 @@ For details on the format of the data this app sends to the server, please visit
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="POI Ratings" image="rectangle.and.pencil.and.ellipsis" catalog="system" id="xhN-qs-g0A" userLabel="Ratings"/>
+                    <connections>
+                        <segue destination="lvt-nc-AQ8" kind="presentation" identifier="ViewTripSegue" id="2ic-eK-160"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZuS-T6-gRn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
