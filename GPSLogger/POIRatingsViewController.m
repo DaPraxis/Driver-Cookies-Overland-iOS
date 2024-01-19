@@ -48,12 +48,6 @@
                 @{@"latitude": @43.6483274, @"longitude": @-79.4201452},
                 // ...
             ]
-//            @"route": @[
-//                            @{@"latitude": @37.7749, @"longitude": @-122.4194}, // Sample coordinates for the route
-//                            @{@"latitude": @37.7752, @"longitude": @-122.4195}, // Add more coordinates as needed
-//                            @{@"latitude": @37.7756, @"longitude": @-122.4197},
-//                            // ...
-//                        ]
         },
         // Add more trips as needed
     ]];
@@ -142,12 +136,16 @@
 - (void)tripDetailsViewController:(TripDetailsViewController *)tripDetailsViewController didFinishRating:(BOOL)finishedRating {
     // Handle the completion of rating
     if (finishedRating) {
-        // Remove the corresponding trip from the array or update its rating status
+        // Update the rating status for the corresponding trip
         if (tripDetailsViewController.selectedTripIndex != NSNotFound && tripDetailsViewController.selectedTripIndex < self.tripObjects.count) {
-            NSLog(@"Removing trip at index: %ld", (long)tripDetailsViewController.selectedTripIndex);
-            [self.tripObjects removeObjectAtIndex:tripDetailsViewController.selectedTripIndex];
+            NSLog(@"Updating rating status for trip at index: %ld", (long)tripDetailsViewController.selectedTripIndex);
 
-            // Reload trip cards after removing the trip
+            NSMutableDictionary *tripObject = [self.tripObjects[tripDetailsViewController.selectedTripIndex] mutableCopy];
+            tripObject[@"isRated"] = @YES; // Update isRated to YES
+
+            [self.tripObjects replaceObjectAtIndex:tripDetailsViewController.selectedTripIndex withObject:tripObject];
+
+            // Reload trip cards after updating the rating status
             [self reloadTripCards];
         } else {
             NSLog(@"Invalid selectedTripIndex: %ld", (long)tripDetailsViewController.selectedTripIndex);

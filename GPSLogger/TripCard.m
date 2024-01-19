@@ -22,6 +22,12 @@
 
 - (void)updateUI {
     // Update UI based on rating status
+    if (_isRated) {
+        self.alpha = 0.5; // Set alpha to 0.5 to visually indicate that the card is disabled
+    } else {
+        self.alpha = 1.0; // Set alpha to 1.0 for normal appearance
+    }
+
     self.titleLabel.enabled = !_isRated;
     self.timeLabel.enabled = !_isRated;
     self.distanceLabel.enabled = !_isRated;
