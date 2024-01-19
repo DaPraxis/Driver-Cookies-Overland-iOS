@@ -10,20 +10,16 @@
 
 @interface TripCard : UIView
 
+@property (nonatomic, weak) id<TripCardDelegate> delegate;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) UILabel *distanceLabel;
 @property (nonatomic, strong) UILabel *durationLabel;
 @property (nonatomic, strong) UIButton *mapButton;
-@property (nonatomic, weak) id<TripCardDelegate> delegate;
-
-// Add a property for tripData
+@property (nonatomic, assign) BOOL isRated;
 @property (nonatomic, strong) NSDictionary *tripData;
 
-// Add a property for isRated
-@property (nonatomic, assign) BOOL isRated;
-
-// Declare the updateUI method
+- (instancetype)initWithFrame:(CGRect)frame tripData:(NSDictionary *)tripData;
 - (void)updateUI;
 
 @end

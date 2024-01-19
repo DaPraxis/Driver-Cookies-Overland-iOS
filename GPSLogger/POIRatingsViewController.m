@@ -18,8 +18,43 @@
 
     // Set up the array of trip objects with sample data
     self.tripObjects = [NSMutableArray arrayWithArray:@[
-        @{@"title": @"Trip 1", @"time": @"Departure time: 10:00 AM", @"distance": @"Distance: 20 km", @"duration": @"Duration: 1h 30m", @"isRated": @NO},
-        @{@"title": @"Trip 2", @"time": @"Departure time: 11:00 AM", @"distance": @"Distance: 15 km", @"duration": @"Duration: 1h 15m", @"isRated": @NO},
+        @{
+            @"title": @"Trip 1",
+            @"time": @"Departure time: 10:00 AM",
+            @"distance": @"Distance: 20 km",
+            @"duration": @"Duration: 1h 30m",
+            @"isRated": @NO,
+//            @"route": @[
+//                @{@"latitude": @43.6680405, @"longitude": @-79.4035016}, // Sample coordinates for the route
+//                @{@"latitude": @43.667827, @"longitude": @-79.403296}, // Add more coordinates as needed
+//                @{@"latitude": @43.6676598, @"longitude": @-79.404575},
+//                // ...
+//            ]
+            @"route": @[
+                            @{@"latitude": @37.7749, @"longitude": @-122.4194},
+                            @{@"latitude": @37.7753, @"longitude": @-122.4196},
+                            // ...
+                        ]
+        },
+        @{
+            @"title": @"Trip 2",
+            @"time": @"Departure time: 11:00 AM",
+            @"distance": @"Distance: 15 km",
+            @"duration": @"Duration: 1h 15m",
+            @"isRated": @NO,
+            @"route": @[
+                @{@"latitude": @43.6488233, @"longitude": @-79.4204366},
+                @{@"latitude": @43.6471951999999, @"longitude": @-79.4201452},
+                @{@"latitude": @43.6483274, @"longitude": @-79.4201452},
+                // ...
+            ]
+//            @"route": @[
+//                            @{@"latitude": @37.7749, @"longitude": @-122.4194}, // Sample coordinates for the route
+//                            @{@"latitude": @37.7752, @"longitude": @-122.4195}, // Add more coordinates as needed
+//                            @{@"latitude": @37.7756, @"longitude": @-122.4197},
+//                            // ...
+//                        ]
+        },
         // Add more trips as needed
     ]];
 
@@ -49,7 +84,13 @@
     for (NSInteger i = 0; i < self.tripObjects.count; i++) {
         NSDictionary *tripObject = self.tripObjects[i];
 
-        TripCard *tripCard = [[TripCard alloc] initWithFrame:CGRectMake(10, i * (cardHeight + 10), self.view.frame.size.width - 20, cardHeight)];
+        // Use a local variable for the loop counter
+        NSInteger localIndex = i;
+
+        TripCard *tripCard = [[TripCard alloc] initWithFrame:CGRectMake(10, localIndex * (cardHeight + 10), self.view.frame.size.width - 20, cardHeight) tripData:tripObject];
+        
+        tripCard.tripData = tripObject; // Store trip data in the TripCard
+        
         tripCard.titleLabel.text = tripObject[@"title"];
         tripCard.timeLabel.text = tripObject[@"time"];
         tripCard.distanceLabel.text = tripObject[@"distance"];
@@ -61,12 +102,13 @@
         // Update UI based on rating status
         [tripCard updateUI];
 
-        tripCard.tripData = tripObject; // Store trip data in the TripCard
         tripCard.delegate = self; // Set the delegate to self
 
         [self.scrollView addSubview:tripCard];
     }
 }
+
+
 
 - (void)tripCardDidTapMapButton:(TripCard *)tripCard {
     // Create an instance of TripDetailsViewController
@@ -77,6 +119,8 @@
     tripDetailsViewController.departureTime = tripCard.timeLabel.text;
     tripDetailsViewController.distance = tripCard.distanceLabel.text;
     tripDetailsViewController.duration = tripCard.durationLabel.text;
+    tripDetailsViewController.tripData = tripCard.tripData;
+    NSLog(@"Segue Trip Route: %@", tripCard.tripData);
 
     // Set the modal presentation style to UIModalPresentationOverFullScreen
     tripDetailsViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
