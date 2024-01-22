@@ -1477,6 +1477,24 @@ For details on the format of the data this app sends to the server, please visit
             </objects>
             <point key="canvasLocation" x="1517.5999999999999" y="357.57121439280365"/>
         </scene>
+        <!--CustomPOI Dialog View Controller-->
+        <scene sceneID="Pxi-gP-M08">
+            <objects>
+                <viewController storyboardIdentifier="CustomPOIDialogViewController" id="nli-TR-jWE" customClass="CustomPOIDialogViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5L0-OW-Z43"/>
+                        <viewControllerLayoutGuide type="bottom" id="wii-1B-CE1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wi9-4M-JfC">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="916"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mBb-ta-LCo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2439" y="1560"/>
+        </scene>
         <!--Trip Details View Controller-->
         <scene sceneID="3Tn-MC-PwF">
             <objects>
@@ -1490,6 +1508,9 @@ For details on the format of the data this app sends to the server, please visit
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <segue destination="nli-TR-jWE" kind="presentation" identifier="showPOIDialog" id="5QK-Rm-BnY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqI-Jz-ITY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

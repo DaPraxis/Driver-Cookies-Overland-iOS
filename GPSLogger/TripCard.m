@@ -38,7 +38,7 @@
 - (void)createSubviews {
     // Map View (1/3 width)
     MKMapView *mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width / 3, self.frame.size.height)];
-    mapView.showsUserLocation = YES;
+    mapView.showsUserLocation = NO;
 
     // Extract coordinates from the route data
     NSArray *routeCoordinates = self.tripData[@"route"];

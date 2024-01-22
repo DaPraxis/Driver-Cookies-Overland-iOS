@@ -17,20 +17,26 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - SDWebImage (5.18.10):
+    - SDWebImage/Core (= 5.18.10)
+  - SDWebImage/Core (5.18.10)
 
 DEPENDENCIES:
   - AFNetworking (= 4.0.1)
   - FMDB (= 2.7.5)
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
     - AFNetworking
     - FMDB
+    - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  SDWebImage: fc8f2d48bbfd72ef39d70e981bd24a3f3be53fec
 
-PODFILE CHECKSUM: 176ba5d340c5becc3b95e34d400a18bba3c89f22
+PODFILE CHECKSUM: 5088a0ea72e450384363dc22e85afacd78e01949
 
 COCOAPODS: 1.14.3

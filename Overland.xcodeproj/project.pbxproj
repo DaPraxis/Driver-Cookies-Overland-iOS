@@ -36,12 +36,12 @@
 		2294C3202B59C85A00042A41 /* POIRatingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2294C31F2B59B3BB00042A41 /* POIRatingsViewController.m */; };
 		2294C3232B59E04600042A41 /* TripCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2294C3222B59E04600042A41 /* TripCard.m */; };
 		2294C3252B59E1FD00042A41 /* TripDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2294C31D2B59B2DC00042A41 /* TripDetailsViewController.m */; };
-		3634361F4A29E08AC54363A2 /* libPods-Overland.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B1754375CDE5FB110B9F81 /* libPods-Overland.a */; };
+		2294C3292B5E1EDA00042A41 /* CustomPOIDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2294C3282B5E1EDA00042A41 /* CustomPOIDialogViewController.m */; };
+		416D30B45BCEF1F56E474D78 /* libPods-Overland.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6BE959E87940196359471A /* libPods-Overland.a */; };
 		6D2858D1222B133400F525E1 /* WifiZoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2858D0222B133400F525E1 /* WifiZoneViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		09B1754375CDE5FB110B9F81 /* libPods-Overland.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Overland.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F3E520E201E543200DCFAA4 /* OpenSansCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSansCondensed-Bold.ttf"; path = "Fonts/OpenSansCondensed-Bold.ttf"; sourceTree = SOURCE_ROOT; };
 		0F3E520F201E543200DCFAA4 /* OpenSansCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSansCondensed-Light.ttf"; path = "Fonts/OpenSansCondensed-Light.ttf"; sourceTree = SOURCE_ROOT; };
 		0F3E5212201E54FB00DCFAA4 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Light.ttf"; path = "Fonts/OpenSans-Light.ttf"; sourceTree = SOURCE_ROOT; };
@@ -92,11 +92,14 @@
 		2294C3222B59E04600042A41 /* TripCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripCard.m; sourceTree = "<group>"; };
 		2294C3242B59E05F00042A41 /* TripCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripCard.h; sourceTree = "<group>"; };
 		2294C3262B5A265600042A41 /* TripDetailsViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailsViewControllerDelegate.h; sourceTree = "<group>"; };
+		2294C3272B5E1EBA00042A41 /* CustomPOIDialogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomPOIDialogViewController.h; sourceTree = "<group>"; };
+		2294C3282B5E1EDA00042A41 /* CustomPOIDialogViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomPOIDialogViewController.m; sourceTree = "<group>"; };
+		2A620736FB784C4F39399FB7 /* Pods-Overland.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Overland.debug.xcconfig"; path = "Target Support Files/Pods-Overland/Pods-Overland.debug.xcconfig"; sourceTree = "<group>"; };
+		2A6BE959E87940196359471A /* libPods-Overland.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Overland.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		692FAA168F9EFCFEF90AA0C0 /* Pods-Overland.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Overland.release.xcconfig"; path = "Target Support Files/Pods-Overland/Pods-Overland.release.xcconfig"; sourceTree = "<group>"; };
 		6D2858CF222B133400F525E1 /* WifiZoneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WifiZoneViewController.h; sourceTree = "<group>"; };
 		6D2858D0222B133400F525E1 /* WifiZoneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WifiZoneViewController.m; sourceTree = "<group>"; };
 		6DEC9B3621F3F88500D9E8C4 /* Overland.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Overland.entitlements; sourceTree = "<group>"; };
-		BC2281D8DF27FB6C611019A6 /* Pods-Overland.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Overland.release.xcconfig"; path = "Target Support Files/Pods-Overland/Pods-Overland.release.xcconfig"; sourceTree = "<group>"; };
-		FE1E6A43F6E63FB71FBE4A09 /* Pods-Overland.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Overland.debug.xcconfig"; path = "Target Support Files/Pods-Overland/Pods-Overland.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +114,7 @@
 				0FFD31791BAB7C7F009B3A03 /* CoreMotion.framework in Frameworks */,
 				0FFD317A1BAB7C7F009B3A03 /* libsqlite3.tbd in Frameworks */,
 				0FFD317B1BAB7C7F009B3A03 /* UIKit.framework in Frameworks */,
-				3634361F4A29E08AC54363A2 /* libPods-Overland.a in Frameworks */,
+				416D30B45BCEF1F56E474D78 /* libPods-Overland.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,7 +132,7 @@
 				0FFD31751BAB7C7F009B3A03 /* CoreMotion.framework */,
 				0FFD31761BAB7C7F009B3A03 /* libsqlite3.tbd */,
 				0FFD31771BAB7C7F009B3A03 /* UIKit.framework */,
-				09B1754375CDE5FB110B9F81 /* libPods-Overland.a */,
+				2A6BE959E87940196359471A /* libPods-Overland.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -153,7 +156,7 @@
 				0F3E520D201E515800DCFAA4 /* Fonts */,
 				0FFD31531BAB7A34009B3A03 /* Products */,
 				0BE775F16162CE9DF6AE0775 /* Frameworks */,
-				A26F4F0257F5734E46C53C57 /* Pods */,
+				3F92DB450954708F039E25C3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,6 +210,8 @@
 				0FFD31551BAB7A34009B3A03 /* Supporting Files */,
 				0FE280B02B0180620062936E /* Settings.bundle */,
 				0F702B012B2E1F670076E6B9 /* Overland-Bridging-Header.h */,
+				2294C3272B5E1EBA00042A41 /* CustomPOIDialogViewController.h */,
+				2294C3282B5E1EDA00042A41 /* CustomPOIDialogViewController.m */,
 			);
 			path = GPSLogger;
 			sourceTree = "<group>";
@@ -228,13 +233,12 @@
 			name = LOLDB;
 			sourceTree = "<group>";
 		};
-		A26F4F0257F5734E46C53C57 /* Pods */ = {
+		3F92DB450954708F039E25C3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FE1E6A43F6E63FB71FBE4A09 /* Pods-Overland.debug.xcconfig */,
-				BC2281D8DF27FB6C611019A6 /* Pods-Overland.release.xcconfig */,
+				2A620736FB784C4F39399FB7 /* Pods-Overland.debug.xcconfig */,
+				692FAA168F9EFCFEF90AA0C0 /* Pods-Overland.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -245,10 +249,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FFD316C1BAB7A34009B3A03 /* Build configuration list for PBXNativeTarget "Overland" */;
 			buildPhases = (
-				70B3DB51B09C6F0EF1A95A46 /* [CP] Check Pods Manifest.lock */,
+				A220DC28635C0F92AA8BB7B6 /* [CP] Check Pods Manifest.lock */,
 				0FFD314E1BAB7A34009B3A03 /* Sources */,
 				0FFD314F1BAB7A34009B3A03 /* Frameworks */,
 				0FFD31501BAB7A34009B3A03 /* Resources */,
+				DA79BD36F30AACBF529A385D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -322,7 +327,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		70B3DB51B09C6F0EF1A95A46 /* [CP] Check Pods Manifest.lock */ = {
+		A220DC28635C0F92AA8BB7B6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -342,6 +347,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA79BD36F30AACBF529A385D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Overland/Pods-Overland-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SDWebImage.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Overland/Pods-Overland-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -364,6 +387,7 @@
 				2294C3252B59E1FD00042A41 /* TripDetailsViewController.m in Sources */,
 				0FAC1FEE2B25FBB50007F3B1 /* SceneDelegate.m in Sources */,
 				0FFD315D1BAB7A34009B3A03 /* TrackingViewController.m in Sources */,
+				2294C3292B5E1EDA00042A41 /* CustomPOIDialogViewController.m in Sources */,
 				0FFD317F1BAB7CC7009B3A03 /* LOLDatabase.m in Sources */,
 				0FF590302B1FA1D500E3AAA3 /* TripSettingsViewController.m in Sources */,
 				0FFD31571BAB7A34009B3A03 /* main.m in Sources */,
@@ -426,7 +450,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -482,7 +506,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -500,7 +524,7 @@
 		};
 		0FFD316D1BAB7A34009B3A03 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE1E6A43F6E63FB71FBE4A09 /* Pods-Overland.debug.xcconfig */;
+			baseConfigurationReference = 2A620736FB784C4F39399FB7 /* Pods-Overland.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -528,7 +552,7 @@
 		};
 		0FFD316E1BAB7A34009B3A03 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC2281D8DF27FB6C611019A6 /* Pods-Overland.release.xcconfig */;
+			baseConfigurationReference = 692FAA168F9EFCFEF90AA0C0 /* Pods-Overland.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
