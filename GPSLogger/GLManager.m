@@ -91,7 +91,14 @@ const double MPH_to_METERSPERSECOND = 0.447;
 }
 
 - (NSString *)apiEndpointURL {
-    return [[NSUserDefaults standardUserDefaults] stringForKey:GLAPIEndpointDefaultsName];
+    NSString *d = [[NSUserDefaults standardUserDefaults] stringForKey:GLAPIEndpointDefaultsName];
+    // If deviceId isn't stored or is an empty string, generate a new one and save it
+    if(d == nil || [d isEqualToString:@""]) {
+        d =@"https://overland.openhumans.org/29oxrjkmu5/";
+        [[NSUserDefaults standardUserDefaults] setObject:d forKey:GLAPIEndpointDefaultsName];
+        [[NSUserDefaults standardUserDefaults] synchronize]; // Ensure the defaults are saved immediately
+    }
+    return d;
 }
 
 - (NSString *)apiAccessToken {
@@ -106,9 +113,14 @@ const double MPH_to_METERSPERSECOND = 0.447;
 
 - (NSString *)deviceId {
     NSString *d = [[NSUserDefaults standardUserDefaults] stringForKey:GLDeviceIdDefaultsName];
-    if(d == nil) {
-        d = @"";
+
+    // If deviceId isn't stored or is an empty string, generate a new one and save it
+    if(d == nil || [d isEqualToString:@""]) {
+        d = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+        [[NSUserDefaults standardUserDefaults] setObject:d forKey:GLDeviceIdDefaultsName];
+        [[NSUserDefaults standardUserDefaults] synchronize]; // Ensure the defaults are saved immediately
     }
+
     return d;
 }
 
@@ -966,7 +978,7 @@ const double MPH_to_METERSPERSECOND = 0.447;
     if([self defaultsKeyExists:GLVisitTrackingEnabledDefaultsName]) {
         return [[NSUserDefaults standardUserDefaults] boolForKey:GLVisitTrackingEnabledDefaultsName];
     } else {
-        return NO;
+        return YES;
     }
 }
 - (void)setVisitTrackingEnabled:(BOOL)enabled {
@@ -978,7 +990,7 @@ const double MPH_to_METERSPERSECOND = 0.447;
     if([self defaultsKeyExists:GLLoggingModeDefaultsName]) {
         return (int)[[NSUserDefaults standardUserDefaults] integerForKey:GLLoggingModeDefaultsName];
     } else {
-        return kGLLoggingModeAllData;
+        return kGLLoggingModeOnlyLatest;
     }
 }
 - (void)setLoggingMode:(GLLoggingMode)loggingMode {
@@ -989,7 +1001,7 @@ const double MPH_to_METERSPERSECOND = 0.447;
     if([self defaultsKeyExists:GLTripLoggingModeDefaultsName]) {
         return (int)[[NSUserDefaults standardUserDefaults] integerForKey:GLTripLoggingModeDefaultsName];
     } else {
-        return kGLLoggingModeAllData;
+        return kGLLoggingModeOnlyLatest;
     }
 }
 - (void)setLoggingModeDuringTrip:(GLLoggingMode)loggingMode {
@@ -1173,7 +1185,7 @@ const double MPH_to_METERSPERSECOND = 0.447;
     if([self defaultsKeyExists:GLTripDesiredAccuracyDefaultsName]) {
         return [[NSUserDefaults standardUserDefaults] doubleForKey:GLTripDesiredAccuracyDefaultsName];
     } else {
-        return kCLLocationAccuracyHundredMeters;
+        return kCLLocationAccuracyBest;
     }
 }
 - (void)setDesiredAccuracyDuringTrip:(CLLocationAccuracy)desiredAccuracy {
