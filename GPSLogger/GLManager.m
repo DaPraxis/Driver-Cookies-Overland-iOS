@@ -30,6 +30,10 @@
 
 @property (strong, nonatomic) NSDictionary *lastLocationDictionary;
 @property (strong, nonatomic) NSDictionary *tripStartLocationDictionary;
+@property (strong, nonatomic) NSMutableDictionary *currentTripSummary;
+
+@property (strong, nonatomic) CLLocation *lastSavedLocation;
+@property (strong, nonatomic) NSDate *lastSavedTime;
 
 @property (strong, nonatomic) LOLDatabase *db;
 @property (strong, nonatomic) FMDatabase *tripdb;
@@ -669,6 +673,15 @@ const double MPH_to_METERSPERSECOND = 0.447;
         return;
     }
     
+    self.currentTripSummary = [@{
+            @"title": [NSString stringWithFormat:@"Trip %@", [NSDate date]],
+            @"time": @"",
+            @"distance": @0,
+            @"duration": @0,
+            @"isRated": @NO,
+            @"route": [NSMutableArray array]
+        } mutableCopy];
+    
     [self sendQueueNow];
 
     [self.tripdb open];
@@ -692,6 +705,38 @@ const double MPH_to_METERSPERSECOND = 0.447;
     [self endTripFromAutopause:NO];
 }
 
+
+- (void)saveTripSummary:(NSDictionary *)tripSummary {
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:tripSummary
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    if (!jsonData) {
+        NSLog(@"Failed to serialize trip summary: %@", error);
+        return;
+    }
+
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+
+    // Construct a file name based on current date and time
+    NSString *fileName = [NSString stringWithFormat:@"TripSummary_%@.json",
+                          [GLManager iso8601DateStringFromDate:[NSDate date]]];
+
+    // Get the Documents directory path
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+
+    // Write to file
+    [jsonString writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        NSLog(@"Failed to save trip summary: %@", error);
+    } else {
+        NSLog(@"Trip summary saved successfully to %@", filePath);
+    }
+}
+
+
 - (void)endTripFromAutopause:(BOOL)autopause {
     _storeNextLocationAsTripStart = NO;
 
@@ -699,6 +744,14 @@ const double MPH_to_METERSPERSECOND = 0.447;
     self.locationManager.activityType = self.activityType;
     self.locationManager.desiredAccuracy = self.desiredAccuracy;
     self.locationManager.showsBackgroundLocationIndicator = self.showBackgroundLocationIndicator;
+    
+    // Set end time and other summary details
+    self.currentTripSummary[@"time"] = [GLManager iso8601DateStringFromDate:self.currentTripStart];
+    self.currentTripSummary[@"duration"] = @(self.currentTripDuration);
+    self.currentTripSummary[@"distance"] = @([self currentTripDistance]);
+
+    // Save the trip summary to the database
+    [self saveTripSummary:self.currentTripSummary];
 
     if(!self.tripInProgress) {
         return;
@@ -1001,7 +1054,7 @@ const double MPH_to_METERSPERSECOND = 0.447;
     if([self defaultsKeyExists:GLTripLoggingModeDefaultsName]) {
         return (int)[[NSUserDefaults standardUserDefaults] integerForKey:GLTripLoggingModeDefaultsName];
     } else {
-        return kGLLoggingModeOnlyLatest;
+        return kGLLoggingModeAllData;
     }
 }
 - (void)setLoggingModeDuringTrip:(GLLoggingMode)loggingMode {
@@ -1297,6 +1350,23 @@ const double MPH_to_METERSPERSECOND = 0.447;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    
+    CLLocation *location = [locations lastObject];
+        if (self.tripInProgress) {
+            if (!self.lastSavedLocation ||
+                 [location.timestamp timeIntervalSinceDate:self.lastSavedTime] >= 30 || // 30 seconds
+                 [location distanceFromLocation:self.lastSavedLocation] >= 100) { // 100 meters
+
+                 // Add the start, sampled, and end points to the route array
+                 NSMutableArray *route = self.currentTripSummary[@"route"];
+                 [route addObject:@{@"latitude": @(location.coordinate.latitude),
+                                    @"longitude": @(location.coordinate.longitude)}];
+
+                 // Update the last saved location and time
+                 self.lastSavedLocation = location;
+                 self.lastSavedTime = location.timestamp;
+             }
+        }
     
     if(self.trackingMode == kGLTrackingModeOff) {
         // This probably shouldn't happen, but just in case, don't log anything if they have tracking mode set to off
